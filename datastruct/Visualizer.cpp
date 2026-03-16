@@ -3,19 +3,21 @@
 
 const sf::Color BACKGROUND_COLOR = sf::Color(43, 43, 41); // grey
 const sf::Color BAR_DEFAULT_COLOR = sf::Color(49, 164, 80); // green ish
-const sf::Color BAR_COMPARE_COLOR = sf::Color(164, 49, 80); // yellow
+const sf::Color BAR_COMPARE_COLOR = sf::Color(164, 49, 80); // red
 const sf::Color BAR_SORTED_COLOR = sf::Color(111, 237, 255); // light blue
 
 
 Visualizer::Visualizer() {
 	setAlgorithm(0);
-
+	resetArray();
 	for (int i = 0; i < ARRAY_SIZE; i++) {
 		array.push_back(rand() % (20 - 1 + 1) + 1);
 		std::cout << array[i] << std::endl;
 	}
 }
-
+void Visualizer::resetArray() {
+	timer = 0;
+}
 void Visualizer::run() {
 	sf::VideoMode vm(WIN_W, WIN_H);
 	sf::RenderWindow window(vm, "sort Visualizer", sf::Style::Default);
